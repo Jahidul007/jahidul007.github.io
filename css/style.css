@@ -73,9 +73,14 @@ body {
 	background-color: #e74c3c;
 	color: #fff;
 }
+.researchSection,
 .researchSection{
 	background-color: #e74c3c;
 	color: #fff;
+}
+.research{
+	text-align: start;
+	margin-left: 10px;
 }
 
 
