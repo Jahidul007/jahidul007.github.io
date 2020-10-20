@@ -61,7 +61,7 @@ body {
 }
 
 .section {
-	padding: 100px 0;
+	padding: 50px 0;
 }
 
 .aboutImage {
@@ -70,19 +70,32 @@ body {
 
 .skillsSection,
 .contactSection {
-	background-color: #e74c3c;
+	background-color: #444;
 	color: #fff;
 }
 .researchSection,
 .researchSection{
-	background-color: #e74c3c;
+	background-color: #444;
 	color: #fff;
+}
+.researchSection h2{
+	color: pink;
+}
+.referencesSection h2{
+	color: pink;
+	padding: 10px;
+	
 }
 .research{
 	text-align: start;
 	margin-left: 10px;
 }
+.academicProjectsSection{
+	
+	color: #fff;
+	padding-left: 50px;
 
+}
 
 .skill {
 	text-align: center;
@@ -151,7 +164,7 @@ body {
 	font-size: 56px;
 	margin-bottom: 10px;
 	font-weight: 400;
-	color: #e74c3c;
+	color: #444;
 }
 
 .squareContent h3 {
@@ -182,7 +195,7 @@ body {
 
 .contactButton:hover {
 	text-decoration: none;
-	color: #e74c3c;
+	color: #444;
 	background-color: #fff;
 }
 
@@ -199,8 +212,8 @@ body {
 }
 
 .filter .current {
-	background-color: #e74c3c;;
-	border-color: #e74c3c;
+	background-color: #444;;
+	border-color: #444;
 	color: #fff;
 }
 
@@ -362,22 +375,3 @@ body {
 	position: fixed;
 	top: 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
