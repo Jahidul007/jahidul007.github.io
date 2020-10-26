@@ -1,5 +1,5 @@
 body {
-	font-size: 14px;
+	font-size: 16px;
     color: #333;
     background-color: #fff;
     letter-spacing: 1px;
@@ -80,10 +80,10 @@ body {
 	color: #fff;
 }
 .researchSection h2{
-	color: pink;
+	color: rgb(238, 11, 49);
 }
 .referencesSection h2{
-	color: pink;
+	color:rgb(238, 11, 49);
 	padding: 10px;
 	
 }
