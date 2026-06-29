@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+          content="Resume of Md Jahidul Islam — Mobile Application Engineer. 5+ years building high-quality mobile and web products with Flutter, with an AI-first approach to new features.">
+    <title>Md Jahidul Islam — Resume</title>
+    <link rel="icon" href="img/profile.jpg" type="image/jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+        :root {
+            --ink: #0f172a;
+            --muted: #475569;
+            --faint: #64748b;
+            --brand: #4f46e5;
+            --line: #e2e8f0;
+            --bg: #ffffff;
+            --soft: #f8fafc;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background: #eef1f6;
+            color: var(--ink);
+            font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+            font-size: 13px;
+            line-height: 1.45;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, .name { font-family: 'Space Grotesk', 'Inter', sans-serif; }
+
+        a { color: var(--brand); text-decoration: none; }
+
+        /* ---- Toolbar (screen only) ---- */
+        .toolbar {
+            max-width: 820px;
+            margin: 22px auto 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding: 0 8px;
+        }
+
+        .toolbar a, .toolbar button {
+            font: inherit;
+            font-weight: 600;
+            font-size: 13px;
+            padding: 9px 16px;
+            border-radius: 9px;
+            border: 1px solid var(--line);
+            background: #fff;
+            color: var(--ink);
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .toolbar .primary {
+            background: var(--brand);
+            color: #fff;
+            border-color: var(--brand);
+        }
+
+        /* ---- The sheet (A4-ish) ---- */
+        .sheet {
+            max-width: 820px;
+            margin: 14px auto 40px;
+            background: var(--bg);
+            box-shadow: 0 10px 40px rgba(15, 23, 42, .12);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* ---- Header ---- */
+        .head {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 26px 32px;
+            background: linear-gradient(120deg, #4f46e5, #7c3aed 55%, #06b6d4);
+            color: #fff;
+        }
+
+        .head img {
+            width: 78px;
+            height: 78px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255, 255, 255, .6);
+            flex-shrink: 0;
+        }
+
+        .head .name { font-size: 26px; font-weight: 700; margin: 0; letter-spacing: -.5px; }
+
+        .head .title { font-size: 14px; font-weight: 500; opacity: .95; margin: 3px 0 0; }
+
+        .head .contact {
+            margin-top: 8px;
+            font-size: 11.5px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 16px;
+            opacity: .95;
+        }
+
+        .head .contact a { color: #fff; }
+
+        /* ---- Body grid ---- */
+        .body {
+            display: grid;
+            grid-template-columns: 1fr 1.9fr;
+            gap: 0;
+        }
+
+        .col-l { background: var(--soft); padding: 22px 22px 26px; border-right: 1px solid var(--line); }
+        .col-r { padding: 22px 26px 26px; }
+
+        .sec { margin-bottom: 18px; }
+        .sec:last-child { margin-bottom: 0; }
+
+        .sec h2 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--brand);
+            margin: 0 0 9px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid var(--line);
+        }
+
+        /* ---- Summary ---- */
+        .summary { color: var(--muted); margin: 0; }
+        .summary strong { color: var(--ink); }
+
+        /* ---- Skills chips ---- */
+        .chips { display: flex; flex-wrap: wrap; gap: 5px; }
+
+        .chip {
+            font-size: 11px;
+            font-weight: 500;
+            padding: 3px 9px;
+            border-radius: 999px;
+            background: #fff;
+            border: 1px solid var(--line);
+            color: var(--muted);
+        }
+
+        .chip.ai {
+            background: #eef0ff;
+            border-color: #c7cbff;
+            color: var(--brand);
+            font-weight: 600;
+        }
+
+        .skill-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--ink);
+            margin: 10px 0 5px;
+        }
+
+        .skill-label:first-of-type { margin-top: 0; }
+
+        /* ---- Experience ---- */
+        .job { margin-bottom: 14px; }
+        .job:last-child { margin-bottom: 0; }
+
+        .job-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .job-top h3 { font-size: 13.5px; margin: 0; font-weight: 700; }
+
+        .job-top .when { font-size: 11px; color: var(--faint); white-space: nowrap; }
+
+        .job .co { font-size: 12px; color: var(--brand); font-weight: 600; margin: 1px 0 4px; }
+
+        .job ul { margin: 0; padding-left: 16px; color: var(--muted); }
+
+        .job ul li { margin-bottom: 2px; }
+
+        /* ---- Projects ---- */
+        .proj { margin-bottom: 9px; }
+        .proj:last-child { margin-bottom: 0; }
+        .proj b { font-size: 12.5px; }
+        .proj span { color: var(--muted); }
+        .proj .pt { color: var(--faint); font-size: 11px; }
+
+        /* ---- compact lists left col ---- */
+        .mini { margin: 0; padding-left: 15px; color: var(--muted); }
+        .mini li { margin-bottom: 3px; }
+
+        .edu-item { margin-bottom: 8px; }
+        .edu-item:last-child { margin-bottom: 0; }
+        .edu-item b { font-size: 12.5px; }
+        .edu-item div { color: var(--muted); font-size: 11.5px; }
+        .edu-item .yr { color: var(--faint); font-size: 11px; }
+
+        /* ---- Print ---- */
+        @media print {
+            @page { size: A4; margin: 0; }
+            body { background: #fff; font-size: 11.5px; }
+            .toolbar { display: none; }
+            .sheet { box-shadow: none; margin: 0; max-width: none; border-radius: 0; }
+            .head { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .col-l, .chip.ai { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            a { color: var(--ink); }
+        }
+
+        @media (max-width: 720px) {
+            .body { grid-template-columns: 1fr; }
+            .col-l { border-right: none; border-bottom: 1px solid var(--line); }
+            .head { flex-direction: column; text-align: center; }
+            .head .contact { justify-content: center; }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="toolbar">
+    <a href="index.html">← Back to portfolio</a>
+    <button class="primary" onclick="window.print()">⬇ Download PDF / Print</button>
+</div>
+
+<div class="sheet">
+
+    <!-- HEADER -->
+    <header class="head">
+        <img src="img/profile.jpg" alt="Md Jahidul Islam">
+        <div>
+            <h1 class="name">Md Jahidul Islam</h1>
+            <p class="title">Mobile Application Engineer · Flutter</p>
+            <div class="contact">
+                <span>📍 Dhaka, Bangladesh</span>
+                <a href="mailto:jahidul479@gmail.com">✉ jahidul479@gmail.com</a>
+                <span>📞 +880 1680-680717</span>
+                <a href="https://www.linkedin.com/in/Jahidul007" target="_blank" rel="noopener">in/Jahidul007</a>
+                <a href="https://github.com/Jahidul007" target="_blank" rel="noopener">github.com/Jahidul007</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="body">
+
+        <!-- LEFT COLUMN -->
+        <div class="col-l">
+
+            <div class="sec">
+                <h2>Core Skills</h2>
+
+                <div class="skill-label">Mobile &amp; Frameworks</div>
+                <div class="chips">
+                    <span class="chip">Flutter</span><span class="chip">Android SDK</span>
+                    <span class="chip">React Native</span><span class="chip">Spring</span>
+                </div>
+
+                <div class="skill-label">Languages</div>
+                <div class="chips">
+                    <span class="chip">Dart</span><span class="chip">Kotlin</span>
+                    <span class="chip">Java</span><span class="chip">Swift</span>
+                    <span class="chip">Python</span><span class="chip">TS/JS</span>
+                </div>
+
+                <div class="skill-label">Backend &amp; Data</div>
+                <div class="chips">
+                    <span class="chip">Node.js</span><span class="chip">REST</span>
+                    <span class="chip">Firebase</span><span class="chip">MySQL</span>
+                    <span class="chip">SQLite</span><span class="chip">GraphQL</span>
+                </div>
+
+                <div class="skill-label">Cloud &amp; DevOps</div>
+                <div class="chips">
+                    <span class="chip">AWS</span><span class="chip">GCP</span>
+                    <span class="chip">Docker</span><span class="chip">CI/CD</span>
+                    <span class="chip">Azure DevOps</span><span class="chip">Git</span>
+                </div>
+
+                <div class="skill-label">AI &amp; ML</div>
+                <div class="chips">
+                    <span class="chip ai">LLM Integration</span>
+                    <span class="chip ai">On-device ML</span>
+                    <span class="chip">NLP</span><span class="chip">RAG</span>
+                </div>
+            </div>
+
+            <div class="sec">
+                <h2>Education</h2>
+                <div class="edu-item">
+                    <b>B.Sc in CSE</b>
+                    <div>Comilla University</div>
+                    <span class="yr">2016 – 2020</span>
+                </div>
+            </div>
+
+            <div class="sec">
+                <h2>Publications</h2>
+                <ul class="mini">
+                    <li>Bengali product-review summarization (Seq2Seq RNNs) — <i>ICECE-2020</i>.
+                        <a href="https://doi.org/10.1109/ICECE51571.2020.9393048" target="_blank" rel="noopener">DOI</a></li>
+                    <li>Bengali sign-language digit recognition (CNN) — <i>IJCSIS 2021</i>.
+                        <a href="https://doi.org/10.5281/zenodo.4533376" target="_blank" rel="noopener">DOI</a></li>
+                </ul>
+            </div>
+
+            <div class="sec">
+                <h2>Links</h2>
+                <ul class="mini">
+                    <li>Portfolio: <a href="https://jahidul.dev" target="_blank" rel="noopener">jahidul.dev</a></li>
+                    <li>LeetCode: 427 solved</li>
+                    <li>Stack Overflow: 12.6k rep</li>
+                    <li>ResearchGate: Md_Islam1258</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="col-r">
+
+            <div class="sec">
+                <h2>Summary</h2>
+                <p class="summary">
+                    Mobile Application Engineer with <strong>5+ years</strong> building high-quality mobile &amp; web
+                    products, with deep expertise in <strong>Flutter</strong> across iOS, Android, and web. I take an
+                    <strong>AI-first approach</strong>, bringing LLMs and on-device ML into products where they add
+                    real value, and care about clean, maintainable code.
+                </p>
+            </div>
+
+            <div class="sec">
+                <h2>Experience</h2>
+
+                <div class="job">
+                    <div class="job-top">
+                        <h3>Flutter Developer (Remote)</h3>
+                        <span class="when">Jun 2023 – Present</span>
+                    </div>
+                    <div class="co">MLION CORP PTE LTD · Singapore</div>
+                    <ul>
+                        <li>Led a multi-vendor asset-tagging system (admin/warehouse/customer) on Flutter, REST &amp;
+                            Firebase across web, iOS, and Android.</li>
+                        <li>Integrated third-party hardware via native Android/iOS channels.</li>
+                        <li>Mentored junior developers and shipped features with product &amp; engineering teams.</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <div class="job-top">
+                        <h3>Software Engineer</h3>
+                        <span class="when">Jan 2021 – Jul 2023</span>
+                    </div>
+                    <div class="co">Brain Station-23 · Dhaka</div>
+                    <ul>
+                        <li>Built a multi-vendor fleet-management system (drivers/merchants/companies) on Flutter for
+                            iOS &amp; Android.</li>
+                        <li>Developed a secure digital payment solution for user, bank &amp; card transfers.</li>
+                        <li>Owned the full app lifecycle: requirements, UI/UX, prototyping, UAT, and production
+                            deployment; supervised trainees.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sec">
+                <h2>Key Projects</h2>
+                <div class="proj">
+                    <b>GoTagID</b> — <span>Steel-industry asset traceability with unique IDs &amp; geolocation
+                    history.</span> <span class="pt">Flutter · RFID · Firebase</span>
+                </div>
+                <div class="proj">
+                    <b>Digital Wallet</b> — <span>B2C/C2C payments with biometric login &amp; secure storage.</span>
+                    <span class="pt">Flutter · WebAuthn · Azure CI/CD</span>
+                </div>
+                <div class="proj">
+                    <b>U-EKYC</b> — <span>eKYC identity verification with facial recognition &amp; liveness
+                    detection.</span> <span class="pt">Flutter · Google ML Kit</span>
+                </div>
+                <div class="proj">
+                    <b>Aristopharma</b> — <span>Salesforce automation app for sales &amp; service teams.</span>
+                    <span class="pt">Kotlin · Hilt · Retrofit</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>
