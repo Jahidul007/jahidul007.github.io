@@ -1,496 +1,1236 @@
 <!DOCTYPE html>
-<html>
-<style>
-    table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-    }
-
-    td,
-    th {
-        border: 2px solid hsl(0, 85%, 33%);
-        text-align: left;
-        padding: 8px;
-    }
-
-    tr:nth-child(even) {
-        background-color: #dddddd;
-    }
-
-    hr {
-        display: block;
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
-        margin-left: auto;
-        margin-right: auto;
-        border-style: inset;
-        border-width: 3px;
-    }
-</style>
+<html lang="en">
 
 <head>
-    <title>MJ Islam</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+          content="Md Jahidul Islam — AI-first Mobile & AI Application Engineer from Dhaka, Bangladesh. 5+ years building intelligent Flutter, mobile, and web products with LLMs, RAG, and on-device ML.">
+    <meta name="author" content="Md Jahidul Islam">
+    <meta name="theme-color" content="#0f172a">
 
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Md Jahidul Islam — AI-first Mobile & AI Application Engineer">
+    <meta property="og:description"
+          content="AI-first engineer building intelligent mobile & web products with LLMs, RAG, and on-device ML.">
+    <meta property="og:image" content="img/profile.jpg">
 
-    <link rel="stylesheet" type="text/css" href="css/superslides.css">
-    <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
-          integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css"/>
+    <title>Md Jahidul Islam — AI-first Mobile &amp; AI Application Engineer</title>
 
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="icon" href="img/profile.jpg" type="image/jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+          rel="stylesheet">
 
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --bg-soft: #ffffff;
+            --bg-elevated: #ffffff;
+            --text: #0f172a;
+            --text-muted: #475569;
+            --text-faint: #64748b;
+            --border: #e2e8f0;
+            --brand: #6366f1;
+            --brand-2: #8b5cf6;
+            --accent: #06b6d4;
+            --ring: rgba(99, 102, 241, 0.25);
+            --shadow: 0 1px 2px rgba(15, 23, 42, .04), 0 8px 24px rgba(15, 23, 42, .06);
+            --shadow-lg: 0 12px 40px rgba(15, 23, 42, .12);
+            --radius: 16px;
+            --maxw: 1080px;
+            --grad: linear-gradient(120deg, var(--brand), var(--brand-2) 55%, var(--accent));
+        }
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        html[data-theme="dark"] {
+            --bg: #0b1120;
+            --bg-soft: #0f172a;
+            --bg-elevated: #131c31;
+            --text: #e8edf6;
+            --text-muted: #aab6ca;
+            --text-faint: #8294af;
+            --border: #1e293b;
+            --ring: rgba(139, 92, 246, .35);
+            --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 10px 30px rgba(0, 0, 0, .35);
+            --shadow-lg: 0 16px 50px rgba(0, 0, 0, .5);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 84px;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            transition: background .3s ease, color .3s ease;
+        }
+
+        h1, h2, h3, h4, .brand {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            line-height: 1.2;
+            letter-spacing: -.01em;
+        }
+
+        a {
+            color: var(--brand);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+        }
+
+        /* ---------- Skip link ---------- */
+        .skip-link {
+            position: absolute;
+            left: -999px;
+            top: 0;
+            background: var(--brand);
+            color: #fff;
+            padding: 10px 16px;
+            border-radius: 0 0 8px 0;
+            z-index: 200;
+        }
+
+        .skip-link:focus {
+            left: 0;
+        }
+
+        /* ---------- Navbar ---------- */
+        header.nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: saturate(180%) blur(12px);
+            background: color-mix(in srgb, var(--bg) 80%, transparent);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .brand {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--grad);
+            box-shadow: 0 0 0 4px var(--ring);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: .94rem;
+            padding: 8px 12px;
+            border-radius: 9px;
+            transition: color .2s, background .2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+            background: color-mix(in srgb, var(--brand) 10%, transparent);
+            text-decoration: none;
+        }
+
+        .icon-btn {
+            display: inline-grid;
+            place-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--bg-elevated);
+            color: var(--text);
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: transform .15s, border-color .2s;
+        }
+
+        .icon-btn:hover {
+            transform: translateY(-1px);
+            border-color: var(--brand);
+        }
+
+        .nav-toggle {
+            display: none;
+        }
+
+        /* ---------- Sections ---------- */
+        section {
+            padding: 72px 0;
+        }
+
+        .section-head {
+            margin-bottom: 32px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: .78rem;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--brand);
+            margin-bottom: 8px;
+        }
+
+        .section-head h2 {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            margin: 0;
+        }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            padding: 64px 0 56px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: -40% -10% auto auto;
+            width: 520px;
+            height: 520px;
+            background: var(--grad);
+            filter: blur(120px);
+            opacity: .18;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-grid {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .avatar-wrap {
+            position: relative;
+        }
+
+        .avatar {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+
+        .avatar-badge {
+            position: absolute;
+            bottom: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: .85rem;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pulse {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #22c55e;
+            box-shadow: 0 0 0 0 rgba(34, 197, 94, .6);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, .5); }
+            70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: color-mix(in srgb, var(--brand) 12%, transparent);
+            color: var(--brand);
+            border: 1px solid color-mix(in srgb, var(--brand) 30%, transparent);
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: .82rem;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.1rem);
+            margin: 0 0 8px;
+        }
+
+        .hero h1 .grad {
+            background: var(--grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero .role {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin: 0 0 18px;
+        }
+
+        .hero p.lead {
+            font-size: 1.04rem;
+            color: var(--text-muted);
+            max-width: 60ch;
+            margin: 0 0 26px;
+        }
+
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 26px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 22px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: .95rem;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: transform .15s, box-shadow .2s, background .2s;
+        }
+
+        .btn:hover {
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: var(--grad);
+            color: #fff;
+            box-shadow: 0 8px 20px var(--ring);
+        }
+
+        .btn-ghost {
+            background: var(--bg-elevated);
+            color: var(--text);
+            border-color: var(--border);
+        }
+
+        /* ---------- Social ---------- */
+        .socials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            align-items: center;
+        }
+
+        .social {
+            position: relative;
+            display: inline-grid;
+            place-items: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            transition: transform .15s, border-color .2s;
+        }
+
+        .social:hover {
+            transform: translateY(-3px);
+            border-color: var(--brand);
+        }
+
+        .social img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+
+        .social .count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--grad);
+            color: #fff;
+            font-size: .68rem;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 999px;
+            border: 2px solid var(--bg);
+        }
+
+        /* ---------- Cards & grids ---------- */
+        .card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 26px;
+            box-shadow: var(--shadow);
+            transition: transform .2s, box-shadow .2s, border-color .2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: color-mix(in srgb, var(--brand) 40%, var(--border));
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .timeline .card + .card {
+            margin-top: 18px;
+        }
+
+        .job-head {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .job-head h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .company {
+            color: var(--brand);
+            font-weight: 600;
+            margin: 2px 0 0;
+        }
+
+        .period {
+            font-size: .85rem;
+            color: var(--text-faint);
+            background: color-mix(in srgb, var(--brand) 8%, transparent);
+            padding: 4px 12px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
+        .card ul {
+            margin: 14px 0 0;
+            padding-left: 20px;
+            color: var(--text-muted);
+        }
+
+        .card ul li {
+            margin-bottom: 8px;
+        }
+
+        /* ---------- Skills ---------- */
+        .skill-group {
+            margin-bottom: 18px;
+        }
+
+        .skill-group .label {
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-group.featured {
+            border: 1px solid color-mix(in srgb, var(--brand) 40%, var(--border));
+            background: color-mix(in srgb, var(--brand) 6%, transparent);
+            border-radius: var(--radius);
+            padding: 18px;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .chip {
+            font-size: .85rem;
+            font-weight: 500;
+            padding: 6px 13px;
+            border-radius: 999px;
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            transition: transform .12s, border-color .2s, color .2s;
+        }
+
+        .chip:hover {
+            transform: translateY(-2px);
+            border-color: var(--brand);
+            color: var(--text);
+        }
+
+        .chip.ai {
+            background: color-mix(in srgb, var(--brand) 14%, transparent);
+            border-color: color-mix(in srgb, var(--brand) 35%, transparent);
+            color: var(--brand);
+        }
+
+        /* ---------- Projects ---------- */
+        .proj-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .proj h3 {
+            margin: 0 0 6px;
+            font-size: 1.15rem;
+        }
+
+        .proj .desc {
+            color: var(--text-muted);
+            font-size: .96rem;
+        }
+
+        .proj .tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 14px;
+        }
+
+        .proj .tech .chip {
+            font-size: .76rem;
+            padding: 4px 10px;
+        }
+
+        /* ---------- Stats ---------- */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-top: 30px;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 22px 12px;
+        }
+
+        .stat .num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat .lbl {
+            font-size: .85rem;
+            color: var(--text-faint);
+            margin-top: 4px;
+        }
+
+        /* ---------- Education table ---------- */
+        .table-wrap {
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .94rem;
+            min-width: 560px;
+        }
+
+        thead th {
+            background: color-mix(in srgb, var(--brand) 10%, transparent);
+            text-align: left;
+            padding: 14px 16px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        tbody td {
+            padding: 14px 16px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        tbody tr:hover td {
+            background: color-mix(in srgb, var(--brand) 5%, transparent);
+        }
+
+        /* ---------- Publications ---------- */
+        .pub {
+            border-left: 3px solid var(--brand);
+            padding: 4px 0 4px 18px;
+            margin-bottom: 18px;
+            color: var(--text-muted);
+            font-size: .96rem;
+        }
+
+        /* ---------- Contact ---------- */
+        .contact {
+            text-align: center;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 56px 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact h2 {
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            margin: 6px 0 18px;
+        }
+
+        /* ---------- Footer ---------- */
+        footer {
+            text-align: center;
+            padding: 32px 0;
+            color: var(--text-faint);
+            font-size: .9rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ---------- Reveal animation ---------- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+
+        .reveal.in {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 860px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .avatar-wrap {
+                max-width: 260px;
+                margin: 0 auto;
+            }
+
+            .cta-row, .socials {
+                justify-content: center;
+            }
+
+            .hero p.lead {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .grid-2, .proj-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                position: fixed;
+                inset: 64px 0 auto 0;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                background: var(--bg-soft);
+                border-bottom: 1px solid var(--border);
+                padding: 10px;
+                box-shadow: var(--shadow-lg);
+                display: none;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 14px;
+            }
+
+            .nav-toggle {
+                display: inline-grid;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="loader">
-    <div class="inner"></div>
-</div>
+<a class="skip-link" href="#main">Skip to content</a>
 
+<header class="nav">
+    <div class="container nav-inner">
+        <a class="brand" href="#top"><span class="dot"></span>Md Jahidul Islam</a>
 
-<nav id="navigation" class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="#">Md Jahidul Islam</a>
+        <nav aria-label="Primary">
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#about">About <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#skills">Skills</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#education">Education</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#research">Research</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#references">References</a>
-            </li>
-        </ul>
+        <div style="display:flex; gap:8px;">
+            <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">🌙</button>
+            <button class="icon-btn nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
     </div>
+</header>
 
-</nav>
+<main id="main">
 
+    <!-- ===== HERO / ABOUT ===== -->
+    <section class="hero" id="top">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="avatar-wrap reveal">
+                    <img class="avatar" src="img/profile.jpg"
+                         alt="Portrait of Md Jahidul Islam" width="400" height="400">
+                    <span class="avatar-badge"><span class="pulse"></span>Open to AI &amp; mobile roles</span>
+                </div>
 
-<div id="about" class="section">
+                <div class="reveal">
+                    <span class="badge-pill">⚡ AI-first driven engineer</span>
+                    <h1>Hi, I'm <span class="grad">Md Jahidul Islam</span></h1>
+                    <p class="role">Mobile &amp; AI Application Engineer · Dhaka, Bangladesh</p>
+                    <p class="lead">
+                        I'm an <strong>AI-first driven</strong> engineer with 5+ years of experience building
+                        high-quality, intelligent software across mobile, web, and cloud. I design and ship products
+                        where AI is a <strong>core part of the experience</strong> — integrating LLMs, agentic
+                        workflows, and on-device ML to solve real-world problems, not bolt them on as an afterthought.
+                    </p>
+                    <div class="cta-row">
+                        <a class="btn btn-primary" href="#contact">Get in touch →</a>
+                        <a class="btn btn-ghost" href="#projects">View my work</a>
+                    </div>
 
-    <div class="container">
-
-        <div class="row">
-
-            <div class="col-md-4">
-                <div class="flip-box">
-                    <div class="flip-box-inner">
-                        <div class="flip-box-front">
-                            <img src="img/profile.jpg" alt="Paris" style="width:350px;height:420px">
-                        </div>
-                        <div class="flip-box-back">
-
-                            <p align="left">
-                            <h2>Md Jahidul Islam</h2>
-                            B.Sc in CSE, Comilla University<br>
-                            Mo: +8801680-680717<br>
-                            jahidul479@gmail.com<br>
-                            Mirpur, Dhaka<br>
-                            Bangladesh</p>
-                        </div>
+                    <div class="socials" aria-label="Social profiles">
+                        <a class="social" href="https://www.linkedin.com/in/Jahidul007" target="_blank"
+                           rel="noopener" aria-label="LinkedIn">
+                            <img src="img/linkedin.webp" alt="">
+                        </a>
+                        <a class="social" href="https://www.github.com/Jahidul007" target="_blank"
+                           rel="noopener" aria-label="GitHub">
+                            <img src="img/github.png" alt="">
+                            <span class="count">100+</span>
+                        </a>
+                        <a class="social" href="https://leetcode.com/jahidul007/" target="_blank"
+                           rel="noopener" aria-label="LeetCode">
+                            <img src="img/leetCode.png" alt="">
+                            <span class="count">427</span>
+                        </a>
+                        <a class="social" href="https://www.researchgate.net/profile/Md_Islam1258" target="_blank"
+                           rel="noopener" aria-label="ResearchGate">
+                            <img src="img/researchgate.png" alt="">
+                            <span class="count">26</span>
+                        </a>
+                        <a class="social" href="https://stackoverflow.com/users/15049264/jahidul-islam"
+                           target="_blank" rel="noopener" aria-label="Stack Overflow">
+                            <img src="img/stackoverflow.png" alt="">
+                            <span class="count">12.6k</span>
+                        </a>
                     </div>
                 </div>
             </div>
 
+            <div class="stats reveal" id="about">
+                <div class="stat card">
+                    <div class="num">5+</div>
+                    <div class="lbl">Years experience</div>
+                </div>
+                <div class="stat card">
+                    <div class="num">10+</div>
+                    <div class="lbl">Apps shipped</div>
+                </div>
+                <div class="stat card">
+                    <div class="num">2</div>
+                    <div class="lbl">Research papers</div>
+                </div>
+                <div class="stat card">
+                    <div class="num">3</div>
+                    <div class="lbl">Countries served</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <body style="padding-top: 70px;"></body>
+    <!-- ===== EXPERIENCE ===== -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Career</span>
+                <h2>Work Experience</h2>
+            </div>
 
-            <div class="col-md-8">
-                <h4>Md Jahidul Islam</h4>
-
-                <p align="justify">
-                    Hi there! I'm Jahidul Islam, a passionate and focused Mobile Application Developer from Dhaka,
-                    Bangladesh, with over five years of professional experience in building high-quality software,
-                    mobile apps, and web solutions.
-                </p>
-
-                <p align="justify">
-                    I hold a Bachelor's degree in Computer Science and Engineering from Comilla University and have
-                    worked with both startups and enterprise teams to deliver impactful products. My technical toolkit
-                    includes Flutter, Dart, Java, Kotlin, React Native, Python, and NLP (Natural Language
-                    Processing) with a strong interest in solving real-world problems through clean code and innovative
-                    thinking.
-                </p>
-
-                <p align="justify">
-                    I thrive in collaborative, challenge-driven environments and take pride in delivering scalable,
-                    efficient, and user-centric applications. I’m always excited to take on new challenges, learn
-                    continuously, and build products that make a difference.
-                </p>
-
-                <div class="row" style="display: flex; align-items: center;">
-
-                    <div class="icon-container" onclick="window.open('http://www.linkedin.com/in/Jahidul007')">
-                        <img src="img/linkedin.webp" alt="LinkedIn">
-                        <!-- No badge info for LinkedIn -->
+            <div class="timeline">
+                <article class="card reveal">
+                    <div class="job-head">
+                        <div>
+                            <h3>Flutter Developer (Remote)</h3>
+                            <p class="company">MLION CORP PTE LTD · Singapore</p>
+                        </div>
+                        <span class="period">Jun 2023 – Present</span>
                     </div>
+                    <ul>
+                        <li>Led development of a multi-vendor asset tagging system for admin, warehouse, and customer
+                            roles using Flutter, REST APIs, and Firebase across web, iOS, and Android.</li>
+                        <li>Integrated third-party hardware via native Android and iOS channels for seamless device
+                            communication.</li>
+                        <li>Collaborated with product and engineering teams to define, design, and ship new features.</li>
+                        <li>Provided technical guidance and mentoring to junior developers to grow team capability.</li>
+                    </ul>
+                </article>
 
-                    <div class="icon-container" onclick="window.open('http://www.github.com/Jahidul007')">
-                        <img src="img/github.png" alt="GitHub">
-                        <div class="badge">100</div>
+                <article class="card reveal">
+                    <div class="job-head">
+                        <div>
+                            <h3>Software Engineer</h3>
+                            <p class="company">Brain Station-23 · Dhaka</p>
+                        </div>
+                        <span class="period">Jan 2021 – Jul 2023</span>
                     </div>
+                    <ul>
+                        <li>Built a multi-vendor fleet management system for drivers, merchants, and companies using
+                            Flutter, REST APIs, and Firebase for iOS and Android.</li>
+                        <li>Developed a secure digital payment solution for transfers between users, banks, and
+                            credit cards.</li>
+                        <li>Owned the app lifecycle from requirement analysis, UI/UX design, and prototyping through
+                            UAT and production deployment.</li>
+                        <li>Trained and supervised junior software trainees to support project deliveries.</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
 
-                    <div class="icon-container" onclick="window.open('https://leetcode.com/jahidul007/')">
-                        <img src="img/leetCode.png" alt="LeetCode">
-                        <div class="badge">427</div>
+    <!-- ===== SKILLS ===== -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Toolkit</span>
+                <h2>Skills &amp; Technologies</h2>
+            </div>
+
+            <div class="card reveal">
+                <div class="skill-group featured">
+                    <div class="label">🤖 AI / Generative AI <span style="font-weight:500;color:var(--text-faint);font-size:.85rem;">— where I focus</span></div>
+                    <div class="chips">
+                        <span class="chip ai">LLM Integration</span>
+                        <span class="chip ai">OpenAI</span>
+                        <span class="chip ai">Anthropic Claude</span>
+                        <span class="chip ai">Gemini</span>
+                        <span class="chip ai">RAG Pipelines</span>
+                        <span class="chip ai">Prompt Engineering</span>
+                        <span class="chip ai">LangChain</span>
+                        <span class="chip ai">Vector Databases</span>
+                        <span class="chip ai">Agentic Workflows</span>
+                        <span class="chip ai">On-device ML</span>
+                        <span class="chip ai">TensorFlow Lite</span>
+                        <span class="chip ai">Google ML Kit</span>
                     </div>
-
-                    <div class="icon-container"
-                         onclick="window.open('https://www.researchgate.net/profile/Md_Islam1258')">
-                        <img src="img/researchgate.png" alt="ResearchGate">
-                        <div class="badge">26</div>
-                    </div>
-
-                    <div class="icon-container stackoverflow"
-                         onclick="window.open('https://stackoverflow.com/users/15049264/jahidul-islam')">
-                        <img src="img/stackoverflow.png" alt="StackOverflow">
-                        <div class="badge">12,645</div>
-                    </div>
-
                 </div>
 
+                <div class="skill-group">
+                    <div class="label">💻 Languages</div>
+                    <div class="chips">
+                        <span class="chip">Dart</span><span class="chip">Java</span><span class="chip">Kotlin</span>
+                        <span class="chip">JavaScript / TypeScript</span><span class="chip">Swift</span>
+                        <span class="chip">Python</span>
+                    </div>
+                </div>
 
+                <div class="skill-group">
+                    <div class="label">📱 Frameworks &amp; Mobile</div>
+                    <div class="chips">
+                        <span class="chip">Flutter</span><span class="chip">Android SDK</span>
+                        <span class="chip">React Native</span><span class="chip">Java Spring</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="label">🛠️ Backend &amp; Databases</div>
+                    <div class="chips">
+                        <span class="chip">Spring Boot</span><span class="chip">Node.js</span>
+                        <span class="chip">FastAPI</span><span class="chip">MySQL</span>
+                        <span class="chip">SQLite</span><span class="chip">Firebase</span>
+                        <span class="chip">Room</span><span class="chip">Hive</span><span class="chip">Pinecone</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="label">☁️ Cloud, DevOps &amp; Tooling</div>
+                    <div class="chips">
+                        <span class="chip">AWS</span><span class="chip">GCP</span><span class="chip">Docker</span>
+                        <span class="chip">GraphQL</span><span class="chip">CI/CD</span>
+                        <span class="chip">Azure DevOps</span><span class="chip">SonarQube</span>
+                        <span class="chip">Mockito</span><span class="chip">Git</span>
+                    </div>
+                </div>
+
+                <div class="skill-group" style="margin-bottom:0;">
+                    <div class="label">✨ AI Dev Tools</div>
+                    <div class="chips">
+                        <span class="chip">Claude Code</span><span class="chip">GitHub Copilot</span>
+                        <span class="chip">Cursor</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Portfolio</span>
+                <h2>Key Projects</h2>
             </div>
 
+            <div class="proj-grid">
+                <article class="card proj reveal">
+                    <h3>GoTagID</h3>
+                    <p class="desc">A traceability solution for the steel industry that assigns unique IDs to steel
+                        assets, tracking current and historical geolocation and asset data even after point of sale.</p>
+                    <div class="tech">
+                        <span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Java</span>
+                        <span class="chip">Swift</span><span class="chip">Bluetooth</span>
+                        <span class="chip">Firebase</span><span class="chip">RFID</span>
+                    </div>
+                </article>
+
+                <article class="card proj reveal">
+                    <h3>Digital Wallet</h3>
+                    <p class="desc">A digital payment solution enabling B2C and C2C money transfers — saving card and
+                        bank info, cash-out, payments, and secure biometric login.</p>
+                    <div class="tech">
+                        <span class="chip">Flutter</span><span class="chip">Dart</span>
+                        <span class="chip">Firebase</span><span class="chip">REST API</span>
+                        <span class="chip">WebAuthn</span><span class="chip">Azure CI/CD</span>
+                    </div>
+                </article>
+
+                <article class="card proj reveal">
+                    <h3>Aristopharma</h3>
+                    <p class="desc">A Salesforce automation app helping marketing, sales, commerce, service, and IT
+                        teams collaborate in a unified workflow.</p>
+                    <div class="tech">
+                        <span class="chip">Kotlin</span><span class="chip">Firebase</span>
+                        <span class="chip">Room</span><span class="chip">Retrofit</span><span class="chip">Hilt</span>
+                    </div>
+                </article>
+
+                <article class="card proj reveal">
+                    <h3>U-EKYC</h3>
+                    <p class="desc">An electronic Know Your Customer (eKYC) solution for identity verification using
+                        facial recognition and liveness detection powered by on-device ML.</p>
+                    <div class="tech">
+                        <span class="chip">Flutter</span><span class="chip">Dart</span>
+                        <span class="chip">Firebase</span><span class="chip">REST API</span>
+                        <span class="chip ai">Google ML Kit</span>
+                    </div>
+                </article>
+            </div>
         </div>
+    </section>
 
-    </div>
+    <!-- ===== EDUCATION ===== -->
+    <section id="education">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Academics</span>
+                <h2>Education</h2>
+            </div>
 
-</div>
-
-
-<section id="experience">
-    <div class="container">
-        <h2 style="border-bottom: 2px solid #000000; padding-bottom: 6px; margin-bottom: 20px;">Work Experience</h2>
-        <div class="job">
-            <h3>Flutter Developer (Remote)</h3>
-            <h6>MLION CORP PTE LTD, Singapore</h6>
-            <p><em>June 2023 – Present</em></p>
-            <ul>
-                <li>Led and developed a multi-vendor asset tagging system for admin, warehouse, and customer using
-                    Flutter, REST APIs, and Firebase across web, iOS, and Android platforms.
-                </li>
-                <li>Integrated third-party hardware devices through native Android and iOS channels for seamless
-                    communication with the app.
-                </li>
-                <li>Collaborated with the product and engineering teams to define, design, and ship new features.</li>
-                <li>Provided technical guidance, mentoring, and support to junior developers to help grow the team’s
-                    overall capability.
-                </li>
-            </ul>
+            <div class="table-wrap reveal">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Exam Title</th>
+                            <th>Major</th>
+                            <th>Institute</th>
+                            <th>Year</th>
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>B.Sc</td>
+                            <td>Computer Science &amp; Engineering</td>
+                            <td>Comilla University</td>
+                            <td>2020</td>
+                            <td>4 Years</td>
+                        </tr>
+                        <tr>
+                            <td>H.S.C</td>
+                            <td>Science</td>
+                            <td>Ashuganj Sarkarkhana College</td>
+                            <td>2013</td>
+                            <td>2 Years</td>
+                        </tr>
+                        <tr>
+                            <td>S.S.C</td>
+                            <td>Science</td>
+                            <td>Shamsul Alam High School</td>
+                            <td>2011</td>
+                            <td>2 Years</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
+    </section>
 
-        <div class="job">
-            <h3>Software Engineer</h3>
-            <h6>Brain Station-23, Dhaka</h6>
-            <p><em>January 2021 – July 2023</em></p>
-            <ul>
-                <li>Developed a multi-vendor fleet management system for drivers, merchants, and companies using
-                    Flutter, REST APIs, and Firebase for both iOS and Android.
-                </li>
-                <li>Built a digital payment solution to support money transfers between users, banks, and credit cards
-                    with secure Flutter implementation.
-                </li>
-                <li>Led the app development process from requirement analysis, UI/UX design, and prototyping to UAT and
-                    production deployment.
-                </li>
-                <li>Trained and supervised a team of junior software trainees to support ongoing project deliveries.
-                </li>
-            </ul>
+    <!-- ===== RESEARCH ===== -->
+    <section id="research">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Research</span>
+                <h2>Publications &amp; Interests</h2>
+            </div>
+
+            <div class="grid-2">
+                <div class="card reveal">
+                    <h3 style="margin-top:0;">Publications</h3>
+                    <div class="pub">
+                        <b>Md Jahidul Islam</b>, Khalil Ahammad, Md. Kamal Hossain Chowdhury. (2020). Summarizing
+                        online product reviews in Bengali based on similarity using sequence-to-sequence RNNs.
+                        <i>11th ICECE-2020</i>.
+                        <a href="https://doi.org/10.1109/ICECE51571.2020.9393048" target="_blank" rel="noopener">DOI</a>
+                    </div>
+                    <div class="pub" style="margin-bottom:0;">
+                        Khalil Ahammad, Jubayer Ahmed Bhuiyan Shawon, Partha Chakraborty, <b>Md Jahidul Islam</b>,
+                        Saiful Islam. (2021). Recognizing Bengali sign language gestures for digits in real time using
+                        a convolutional neural network. <i>IJCSIS, 19(1)</i>.
+                        <a href="https://doi.org/10.5281/zenodo.4533376" target="_blank" rel="noopener">DOI</a>
+                    </div>
+                </div>
+
+                <div class="card reveal">
+                    <h3 style="margin-top:0;">Research Interests</h3>
+                    <div class="chips">
+                        <span class="chip ai">Generative AI, LLMs &amp; Agentic Systems</span>
+                        <span class="chip">Machine Learning &amp; Deep Learning</span>
+                        <span class="chip">Natural Language Processing</span>
+                        <span class="chip">Data Science &amp; Big Data</span>
+                        <span class="chip">Bio-Informatics</span>
+                    </div>
+
+                    <h4 style="margin:22px 0 10px;">Academic Projects</h4>
+                    <ul style="margin:0;padding-left:20px;color:var(--text-muted);">
+                        <li>Bengali text summarization &amp; similarity using Deep Learning (Seq2Seq RNNs)</li>
+                        <li>Sentiment analysis on Bengali language from ratings &amp; reviews</li>
+                        <li>Named Entity Recognition for Bengali newspapers</li>
+                        <li>Online Drug Shop management platform</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
+    <!-- ===== REFERENCES ===== -->
+    <section id="references">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Endorsements</span>
+                <h2>References</h2>
+            </div>
 
-<div class="container" id="skills">
-    <div>
-        <h2 style="border-bottom: 2px solid #000000; padding-bottom: 6px; margin-bottom: 20px;">Skills</h2>
-
-        <div style="font-size: 15px; line-height: 1.8;">
-            <p><strong>Languages:</strong> Dart, Java, Kotlin, JavaScript, Swift, Python</p>
-            <p><strong>Backend:</strong> Spring Boot, Node.js</p>
-            <p><strong>Databases:</strong> MySQL, SQLite, Firebase, Room, HiveSQL</p>
-            <p><strong>Frameworks:</strong> Flutter, Android SDK, React Native, Java Spring</p>
-            <p><strong>Other Technologies:</strong> GraphQL, Mockito, CI/CD, SonarQube, Azure DevOps</p>
-            <p><strong>Version Control:</strong> Git</p>
+            <div class="grid-2">
+                <div class="card reveal">
+                    <h3 style="margin-top:0;">Md Kamal Hossain Chowdhury</h3>
+                    <p style="color:var(--text-muted);margin:0;">
+                        B.Sc &amp; M.Sc in CSE, Jahangirnagar University<br>
+                        Assistant Professor, Dept. of CSE, Comilla University<br>
+                        <a href="mailto:kamal.cou@gmail.com">kamal.cou@gmail.com</a><br>
+                        <span style="color:var(--text-faint);">Teacher &amp; Supervisor</span>
+                    </p>
+                </div>
+                <div class="card reveal">
+                    <h3 style="margin-top:0;">Khalil Ahammad</h3>
+                    <p style="color:var(--text-muted);margin:0;">
+                        B.Sc &amp; M.Sc in CSE, Comilla University<br>
+                        Lecturer, Dept. of CSE, Comilla University<br>
+                        <a href="mailto:khalil.cou.cse@gmail.com">khalil.cou.cse@gmail.com</a><br>
+                        <span style="color:var(--text-faint);">Teacher &amp; Supervisor</span>
+                    </p>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+    </section>
 
-
-<section id="projects">
-    <div class="container">
-        <h2 style="border-bottom: 2px solid #000000; padding-bottom: 6px; margin-bottom: 20px;">Key Projects</h2>
-
-        <div class="project">
-            <h3>1. GoTagID</h3>
-            <p><strong>Description:</strong> A traceability solution for the steel industry providing unique IDs to
-                steel assets. Enables tracking of current and historical geolocation and asset data even after the point
-                of sale.</p>
-            <p><strong>Technologies:</strong> Flutter, Dart, Java, Bluetooth, Swift, Firebase, REST API, RFID scanner
-            </p>
-            <p><strong>Responsibilities:</strong></p>
-            <ul>
-                <li>Designed, developed, and implemented the GoTagID mobile and web applications.</li>
-                <li>Integrated native RFID scanner for seamless asset tagging and tracking.</li>
-                <li>Led the development team and made the app production-ready.</li>
-            </ul>
-        </div>
-
-        <div class="project">
-            <h3>2. Digital Wallet</h3>
-            <p><strong>Description:</strong> A digital payment solution enabling B2C and C2C money transfers. Supports
-                saving card and bank info, enabling cash out, payments, and money transfers.</p>
-            <p><strong>Technologies:</strong> Flutter, Dart, Firebase, REST API, WebAuthN (Biometric login)</p>
-            <p><strong>Responsibilities:</strong></p>
-            <ul>
-                <li>Maintained CI/CD using Azure Pipelines and managed RxDart-based state management.</li>
-                <li>Implemented secure storage, biometric login, and dependency injection (getIt).</li>
-                <li>Handled SonarQube-based static analysis and led deployment to App Store TestFlight.</li>
-            </ul>
-        </div>
-
-        <div class="project">
-            <h3>3. Aristopharma</h3>
-            <p><strong>Description:</strong> A Salesforce automation app designed to assist marketing, sales, commerce,
-                service, and IT teams in unified collaboration.</p>
-            <p><strong>Technologies:</strong> Kotlin, Firebase, Room Database, Retrofit, Hilt</p>
-            <p><strong>Responsibilities:</strong></p>
-            <ul>
-                <li>Supported app UI/UX design and API integration for a scalable backend.</li>
-            </ul>
-        </div>
-
-        <div class="project">
-            <h3>4. U-EKYC</h3>
-            <p><strong>Description:</strong> An electronic Know Your Customer (eKYC) solution for identity verification
-                using facial recognition and liveness detection.</p>
-            <p><strong>Technologies:</strong> Flutter, Dart, Firebase, REST API, Google ML Kit</p>
-            <p><strong>Responsibilities:</strong></p>
-            <ul>
-                <li>Implemented facial detection and liveness checks using Google ML Kit.</li>
-                <li>Integrated backend APIs and translated data into dynamic mobile UIs.</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-
-<div id="education" class="educationSection section">
-    <div class="container">
-        <h2 style="border-bottom: 2px solid #000000; padding-bottom: 6px; margin-bottom: 20px;">Academic
-            Qualification</h2>
-
-    </div>
-    <div class="container">
-        <table>
-            <tr>
-                <th>Exam Title</th>
-                <th>Concentration/Major</th>
-                <th>Institute</th>
-                <th>Pass Year</th>
-                <th>Duration</th>
-            </tr>
-            <tr>
-                <td>Bachelor of Science(BSC)</td>
-                <td>Computer Science and Engineering</td>
-                <td>Comilla University</td>
-                <td>2020</td>
-                <td>4 Years</td>
-            </tr>
-            <tr>
-                <td>H.S.C</td>
-                <td>Science</td>
-                <td>Ashuganj Sarkarkhana College</td>
-                <td>2013</td>
-                <td>2 Years</td>
-            </tr>
-            <tr>
-                <td>S.S.C</td>
-                <td>Science</td>
-                <td>Shamsul Alam High School</td>
-                <td>2011</td>
-                <td>2 Years</td>
-            </tr>
-
-        </table>
-
-    </div>
-
-</div>
-
-<div id="research" class="researchSection section">
-    <div class="container">
-
-        <div>
-            <h2 style="border-bottom: 2px solid #000000; padding-bottom: 6px; margin-bottom: 20px;">Publications</h2>
-        </div>
-
-        <div id="academicProjects" class="academicProjectsSection">
-            <p id="losinfo" style="font-size:15px; margin-bottom: 16px;">
-                <b>Md Jahidul Islam</b>, Khalil Ahammad, Md. Kamal Hossain Chowdhury. (2020). Summarizing online product
-                reviews in Bengali based on similarity using sequence to sequence RNNs. <i>11th ICECE-2020</i>.
-                DOI: <a href="https://doi.org/10.1109/ICECE51571.2020.9393048" target="_blank">10.1109/ICECE51571.2020.9393048</a>
-            </p>
-
-            <p id="losinfo" style="font-size:15px; margin-bottom: 16px;">
-                Khalil Ahammad, Jubayer Ahmed Bhuiyan Shawon, Partha Chakraborty, <b>Md Jahidul Islam</b>, Saiful Islam.
-                (2021). Recognizing Bengali sign language gestures for digits in real time using convolutional neural
-                network. <i>International Journal of Computer Science and Information Security, 19</i>(1), February
-                2021.
-                DOI: <a href="https://doi.org/10.5281/zenodo.4533376" target="_blank">10.5281/zenodo.4533376</a>
-            </p>
-        </div>
-
-
-        <div>
-            <h2 style="border-bottom: 2px solid #000000; padding-bottom: 6px; margin-bottom: 20px;">Academic Thesis and
-                Projects</h2>
-
-            <br>
-        </div>
-        <div id="academicProjects" class="academicProjectsSection ">
-
-            <h4>• Bengali text summarization and similarity using Deep Learning</h4>
-            <p>Details: Product reviews summarization based on user comments from bangla web portal using Seq2Seq
-                <br>RNNs and validate the text summary using text similarity <br>
-                Tools: Python, Jupyter notebook</p>
-            <h4>• Sentiment Analysis on Bengali Language</h4>
-            <p>Details: Product analysis based on online user Ratings and Reviews<br>
-                Tools: Android, Java, Firebase, XML, Python.</p>
-            <h4>• Named Entity recognition for Bengali Language </h4>
-            <p>Details: A tool that detects named entity from bangali newspaper.<br>
-                Tools: Python.</p>
-            <h4>• Online Drug Shop</h4>
-            <p>Details: An online based shopping platform designed for drug shop management system.<br>
-                Tools: Android, Java, Firebase, XML.</p>
-
-        </div>
-
-
-        <div>
-            <h2 style="border-bottom: 2px solid #000000; padding-bottom: 6px; margin-bottom: 20px;">Research
-                Interest</h2>
-
-            <br>
-        </div>
-
-        <div id="academicProjects" class="academicProjectsSection ">
-
-            <h5>• Machine Learning and Deep learning</h5>
-            <h5>• Natural Language Processing</h5>
-            <h5>• Data Science and Big Data </h5>
-            <h5>• Bio-Informatics</h5>
-
-        </div>
-
-
-    </div>
-</div>
-
-
-<div id="references" class="referencesSection section">
-    <div class="container">
-        <h2 style="border-bottom: 2px solid #000000; padding-bottom: 6px; margin-bottom: 20px;">References</h2>
-
-    </div>
-
-    <div class="container">
-
-
-        <div class="row">
-
-            <div class="col-md-8">
-                <h4>Md Kamal Hossain Chowdhury</h4>
-                <p>
-                    B.Sc & M.Sc in CSE, Jahangirnagar University <br>
-                    Assistant Professor, Dept. of CSE<br>
-                    Comilla University, Cumilla<br>
-                    kamal.cou@gmail.com<br>
-                    Relation: Teacher & Supervisor
+    <!-- ===== CONTACT ===== -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact reveal">
+                <span class="eyebrow">Let's build something</span>
+                <h2>Like what you see?</h2>
+                <p style="color:var(--text-muted);max-width:50ch;margin:0 auto 26px;">
+                    I'd love to hear from you — whether it's an AI-driven product, a mobile app, or a chat about
+                    what's next.
                 </p>
-
+                <a class="btn btn-primary" href="mailto:jahidul479@gmail.com">✉️ Get in touch</a>
             </div>
-
-            <div class="col-md-4">
-
-
-                <h4>Khalil Ahammad</h4>
-
-                <p>
-                    B.Sc & M.Sc in CSE, Comilla University<br>
-                    Lecturer, Dept. of CSE<br>
-                    Comilla University, Cumilla<br>
-                    khalil.cou.cse@gmail.com<br>
-                    Relation: Teacher & Supervisor<br>
-                </p>
-
-
-            </div>
-
         </div>
+    </section>
 
+</main>
+
+<footer>
+    <div class="container">
+        © <span id="year"></span> Md Jahidul Islam · Built with an AI-first mindset.
     </div>
+</footer>
 
-</div>
+<script>
+    // Theme toggle (persisted)
+    (function () {
+        var root = document.documentElement;
+        var btn = document.getElementById('themeToggle');
+        var saved = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = saved || (prefersDark ? 'dark' : 'light');
+        apply(theme);
 
-<div id="contact" class="contactSection section">
+        function apply(t) {
+            root.setAttribute('data-theme', t);
+            btn.textContent = t === 'dark' ? '☀️' : '🌙';
+        }
 
-    <div class="col-md-12 text-center">
+        btn.addEventListener('click', function () {
+            theme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            localStorage.setItem('theme', theme);
+            apply(theme);
+        });
+    })();
 
-        <p class="subHeading">Like what you see?</p>
-        <h2>I'd love to hear from you!</h2>
-        <a href="mailTo:jahidul479@gmail.com" class="contactButton">GET IN TOUCH!</a>
+    // Mobile nav
+    (function () {
+        var toggle = document.getElementById('navToggle');
+        var links = document.getElementById('navLinks');
+        toggle.addEventListener('click', function () {
+            var open = links.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', open);
+        });
+        links.addEventListener('click', function (e) {
+            if (e.target.tagName === 'A') links.classList.remove('open');
+        });
+    })();
 
-    </div>
+    // Reveal on scroll
+    (function () {
+        var els = document.querySelectorAll('.reveal');
+        if (!('IntersectionObserver' in window)) {
+            els.forEach(function (el) { el.classList.add('in'); });
+            return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+                if (en.isIntersecting) {
+                    en.target.classList.add('in');
+                    io.unobserve(en.target);
+                }
+            });
+        }, { threshold: .12 });
+        els.forEach(function (el) { io.observe(el); });
+    })();
 
-</div>
-
-
-<div class="copyrightSection">
-
-    <div class="col-md-12 text-center">
-        <p>&copy;Md Jahidul Islam, 2025</p>
-    </div>
-
-</div>
-
-
-<script src="js/countUp.js"></script>
-<script src="js/countUp-jquery.js"></script>
-<script src="js/jquery.superslides.min.js"></script>
-<script src="js/jquery.easypiechart.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/typed.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://unpkg.com/isotope-layout@3.0.5/dist/isotope.pkgd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
-
-<script src="js/script.js"></script>
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 
 </body>
 
